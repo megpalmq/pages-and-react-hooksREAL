@@ -12,7 +12,7 @@ export default function Home() {
 
   function addToScore(){
     //score++;
-    setScore:(score+1);
+    setScore(score+1);
     console.log('score');
   }
   function doublePoints(){
