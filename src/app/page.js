@@ -1,11 +1,16 @@
 "use client";
+import {useState} from 'react';
 
 export default function Home() {
-  let score= 0;
+  //let score= 0;
+  const scoreState= useState();
+  const score = scoreState[0];
+
+  console.log(scoreState);
 
   function addToScore(){
-    score++;
-    console.log(score)
+    //score++;
+    console.log('score');
   }
 
   return (
