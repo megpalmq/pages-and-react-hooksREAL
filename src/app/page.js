@@ -5,6 +5,7 @@ export default function Home() {
 
   function addToScore(){
     score++;
+    console.log(score)
   }
 
   return (
