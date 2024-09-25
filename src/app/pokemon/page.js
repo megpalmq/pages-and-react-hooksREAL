@@ -26,7 +26,7 @@ export default function Pokemon() {
 
   const [pokeEncounters, setPokemonEncounters]= useState([]);
   
-  console.log("pokemonEncounters", pokeEncounters);
+  //console.log("pokemonEncounters", pokeEncounters);
 
   function changeSearchTerm(e) {
     setSearchTerm(e.currentTarget.value.toLowerCase());
@@ -65,7 +65,7 @@ export default function Pokemon() {
     },
     [pokemon]
   );
-
+console.count("viewed page")
   return (
     <main>
       <h1>Pokemon Page</h1>
