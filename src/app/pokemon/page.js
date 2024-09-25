@@ -41,14 +41,24 @@ export default function Pokemon() {
     }
   }
 
-  useEffect(function(){
+  useEffect(
+   function(){
     if(pokemon.id){
-      console.log("get more data")
+      fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.id}/encounters`)
+      .then{(rawData)=>{
+        return rawData.json();
+      }}
+      .then{(pokeEncounters)=>{
+        console.log(pokeEncounters)
+      }}
+      .catch{(e)=>{
+        console.warn(e);
+      }}
     }
-  },
- {pokemon}
-)
-  
+  }
+    
+}
+
 
   return (
     <main>
