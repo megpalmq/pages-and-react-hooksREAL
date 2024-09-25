@@ -25,6 +25,8 @@ export default function Pokemon() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const [pokeEncounters, setPokemonEncounters]= useState([]);
+  
+  console.log("pokemonEncounters", pokeEncounters);
 
   function changeSearchTerm(e) {
     setSearchTerm(e.currentTarget.value.toLowerCase());
@@ -43,24 +45,26 @@ export default function Pokemon() {
     }
   }
 
+  
   useEffect(
-   function(){
-    if(pokemon.id){
-      fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.id}/encounters`)
-      .then((rawData)=>{
-        return rawData.json();
-      })
-      .then((pokeEncounters)=>{
-        console.log(pokeEncounters);
-      })
-      .catch((e)=>{
-        console.warn(e);
-      });
-    }
-  },
+    function () {
+      if (pokemon.id) {
+        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.id}/encounters`)
+          .then((rawData) => {
+            return rawData.json();
+          })
+          .then((pokeEncounters) => {
+            setPokemonEncounters(pokeEncounters);
+          })
+          .catch((e) => {
+            setPokemonEncounters([]);
+          });
+      } else {
+        setPokemonEncounters([]);
+      }
+    },
     [pokemon]
-);
-
+  );
 
   return (
     <main>
