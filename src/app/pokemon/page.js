@@ -24,6 +24,8 @@ export default function Pokemon() {
    */
   const [searchTerm, setSearchTerm] = useState("");
 
+  const [pokeEncounters, setPokemonEncounters]= useState([]);
+
   function changeSearchTerm(e) {
     setSearchTerm(e.currentTarget.value.toLowerCase());
   }
@@ -45,19 +47,19 @@ export default function Pokemon() {
    function(){
     if(pokemon.id){
       fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.id}/encounters`)
-      .then{(rawData)=>{
+      .then((rawData)=>{
         return rawData.json();
-      }}
-      .then{(pokeEncounters)=>{
-        console.log(pokeEncounters)
-      }}
-      .catch{(e)=>{
+      })
+      .then((pokeEncounters)=>{
+        console.log(pokeEncounters);
+      })
+      .catch((e)=>{
         console.warn(e);
-      }}
+      });
     }
-  }
-    
-}
+  },
+    [pokemon]
+);
 
 
   return (
