@@ -18,6 +18,9 @@ export default function RootLayout({ children }) {
             <li>
               <Link href="/pokemon">Pokemon</Link>
             </li>
+            <li>
+              <Link href="/animal">Animal</Link>
+            </li>
           </ul>
         </nav>
         {children}
